@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>URL Shortener</h1>
+    <form action="/shorten" method="post">
+      <input type="text" name="url" autocomplete="off">
+      <button type="submit" name="button">Shorten</button>
+    </form>
+    <% if(shortUrl) { %>
+      <p>localhost:3000/<%= shortUrl %></p>
+    <% } %>
+  </body>
+</html>
