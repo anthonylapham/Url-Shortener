@@ -3,21 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.8.0",
+    "npm": "6.2.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon app.js"
+    "start:dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "mongoose": "^5.2.17",
     "morgan": "^1.9.1",
     "shortid": "^2.2.13",
     "validator": "^10.7.1"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0",
   }
 }
