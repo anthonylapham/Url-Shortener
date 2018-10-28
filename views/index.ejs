@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -8,10 +9,19 @@
     <h1>URL Shortener</h1>
     <form action="/shorten" method="post">
       <input type="text" name="url" autocomplete="off">
-      <button type="submit" name="button">Shorten</button>
+      <button type="submit" name="button" id="button">Shorten</button>
     </form>
-    <% if(shortUrl) { %>
-      <p>localhost:3000/<%= shortUrl %></p>
+    <% if (shortUrl) { %>
+      <a href="<%= shortUrl %>" target="_blank">localhost:3000/<%= shortUrl %></a>
     <% } %>
+    <ul>
+      <% if (arrayOfResults) { %>
+        <% arrayOfResults.forEach(function(obj) { %>
+          <li>
+            <a href="<%= obj.url %>" target="_blank" list-style-type:"upper-roman"><%= obj.url %></a>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
   </body>
 </html>
