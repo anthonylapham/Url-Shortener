@@ -4,15 +4,18 @@ const validator = require('validator');
 const shortid = require('shortid');
 const Url = require('./models/Url');
 
-router.get('/', (req, res) => {
-  Url.find({},  (err, result) => {
-    if(err)return res.status(500).send({success: false, msg: 'Error'});
-    if(!result) return res.status(404).send({success: false, msg: 'Not found'});
+router.get('/', async (req, res) => {
+  try {
+    const query = Url.find({});
+    const results = await query.exec();
+    if (!results.length) return res.status(404).send({success: false, msg: 'Not found'});
     res.render('index', {
       shortUrl: null,
-      arrayOfResults: result
+      arrayOfResults: results
     });
-  });
+  } catch (err) {
+    res.status(500).send({ success: false, msg: err.toString() });
+  }
 });
 
 /*router.get('/shorten', (req, res) => {
